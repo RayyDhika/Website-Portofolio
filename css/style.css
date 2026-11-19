@@ -241,3 +241,180 @@ footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute);font-size:1rem
   .ttd{font-size:1.3rem}.ttd b{font-size:1.6rem}
   .segel{width:3.4rem;font-size:1.1rem}
 }
+
+/* Mentahan sobekan kertas di pinggir kiri & kanan */
+.pinggir-kertas{
+  position:absolute;
+  top:0;
+  bottom:0;
+  height:100%;
+  width:auto;
+  max-width:none;
+  pointer-events:none;
+  user-select:none;
+  z-index:2;
+  filter:drop-shadow(0 0 10px rgba(0,0,0,.45));
+}
+
+.pinggir-kiri{
+  left:-6px;
+}
+
+.pinggir-kanan{
+  right:-6px;
+  transform:scaleX(-1); /* dibalik horizontal agar sobekannya menghadap ke dalam */
+}
+
+/* Pastikan kartu catatan & benang berada di atas layer pinggiran */
+.edu-threads{z-index:3}
+.clue-note,.clue-center,.clue-scrap{z-index:4}
+
+/* Penyesuaian di layar HP agar tidak menutupi teks kartu */
+@media (max-width:759px){
+  .pinggir-kertas{
+    opacity:.45;
+  }
+}
+
+/* Bagian Pendidikan: gaya papan pin & benang merah ala gambar referensi */
+.edu-board{
+  position:relative;
+  max-width:900px;
+  margin:0 auto;
+  padding:2.2rem 1.5rem 2.5rem;
+  min-height:460px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,235,190,.08), rgba(0,0,0,.45)),
+    linear-gradient(145deg, #3a2419, #24150e);
+  border:2px solid var(--line);
+  border-radius:10px;
+  box-shadow:0 16px 32px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+
+.edu-threads{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+  pointer-events:none;
+}
+.edu-threads line{
+  stroke:#c9322b;
+  stroke-width:3;
+  stroke-linecap:round;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.65));
+}
+
+.pin{
+  position:absolute;
+  top:8px;
+  left:50%;
+  transform:translateX(-50%);
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #ff7b72, #b81d18 65%, #690c09);
+  box-shadow:0 3px 6px rgba(0,0,0,.55), inset 0 1px 2px rgba(255,255,255,.45);
+  z-index:3;
+}
+
+.clue-note,
+.clue-center,
+.clue-scrap{
+  position:relative;
+  z-index:2;
+  color:#2b1910;
+  box-shadow:0 8px 18px rgba(0,0,0,.45);
+}
+
+.clue-note{
+  width:240px;
+  padding:1.45rem 1rem 1rem;
+  background:linear-gradient(180deg, #f7eccf, #e8d4a6);
+  border:1px solid rgba(90,55,30,.35);
+}
+.clue-note h3{
+  margin:.2rem 0 .35rem;
+  font-family:var(--disp);
+  font-size:1rem;
+  line-height:1.25;
+  color:#3a1d11;
+}
+.clue-note p{
+  margin:0;
+  font-size:1rem;
+  line-height:1.35;
+  color:#523424;
+}
+.clue-year{
+  display:inline-block;
+  font-family:var(--disp);
+  font-size:.78rem;
+  letter-spacing:.08em;
+  padding:.1rem .45rem;
+  background:#8f241e;
+  color:#f9ecd2;
+}
+
+.clue-center{
+  margin:0;
+  width:165px;
+  padding:.55rem .55rem .4rem;
+  background:#f6ebd2;
+  transform:rotate(-1.5deg);
+}
+.clue-center img{
+  width:100%;
+  aspect-ratio:520/677;
+  object-fit:cover;
+  filter:sepia(.35) contrast(1.05);
+}
+.clue-center figcaption{
+  padding-top:.4rem;
+  text-align:center;
+  font-family:var(--disp);
+  font-size:.82rem;
+  letter-spacing:.08em;
+  color:#3a2316;
+}
+
+.clue-scrap{
+  width:230px;
+  padding:1.4rem 1rem .95rem;
+  background:linear-gradient(160deg, #d7b482, #b88d58);
+  clip-path:polygon(0 2%, 100% 0, 98% 96%, 72% 100%, 48% 95%, 22% 100%, 0 96%);
+  transform:rotate(2.5deg);
+}
+.clue-scrap p{
+  margin:0;
+  font-family:"Caveat","Segoe Script",cursive;
+  font-size:1.35rem;
+  line-height:1.15;
+  color:#2b170e;
+}
+
+/* Posisi papan pada layar desktop */
+@media (min-width:760px){
+  .note-sd{position:absolute;top:24px;left:28px;transform:rotate(-3deg)}
+  .clue-center{position:absolute;top:115px;left:50%;margin-left:-82.5px}
+  .note-smp{position:absolute;top:32px;right:28px;transform:rotate(2.5deg)}
+  .note-smk{position:absolute;bottom:24px;right:42px;transform:rotate(-2deg)}
+  .clue-scrap{position:absolute;bottom:26px;left:38px}
+}
+
+/* Tata letak rapi di layar HP / sempit */
+@media (max-width:759px){
+  .edu-board{
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.25rem;
+  }
+  .edu-threads{display:none}
+  .clue-note,.clue-scrap{width:100%;max-width:320px;transform:none}
+  .clue-center{width:170px;transform:none}
+}
+

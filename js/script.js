@@ -16,3 +16,5 @@ ids.forEach(h => { const s = document.querySelector(h); if (s) spy.observe(s); }
 // Bar navigasi atas baru muncul setelah hero (buku) terlewati
 const bar = document.querySelector('.bar');
 new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting)).observe(document.getElementById('top'));
+
+
