@@ -83,6 +83,22 @@ nav ul a:hover,nav ul a.active{color:var(--gold);border-bottom-color:var(--gold)
     );
 }
 
+/* hiasan.webp: pinggir memudar halus + opsi blur */
+.hiasan{
+  opacity:.95;
+  filter:blur(.6px); /* ubah ke 2px–4px jika ingin pinggirannya lebih blur */
+  -webkit-mask-image:
+    radial-gradient(ellipse at center, #000 55%, transparent 98%),
+    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent),
+    linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:
+    radial-gradient(ellipse at center, #000 55%, transparent 98%),
+    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent),
+    linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  mask-composite:intersect;
+}
+
 .journal{position:relative;z-index:1;max-width:920px;margin:0 auto}
 .jhead{margin-bottom:1rem;text-align:center}
 .jtitle{font-family:var(--disp);font-size:1.5rem;letter-spacing:.08em;margin:0;color:#ecdcc0}
