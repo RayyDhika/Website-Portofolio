@@ -197,12 +197,34 @@ footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute);font-size:1rem
 @media (max-width:759px){.filmimg{display:none}}
 @media (max-width:560px){.logo{display:none}nav{padding:.8rem .75rem;justify-content:center}nav ul{gap:.8rem}nav ul a{font-size:.95rem}}
 
-.divider {
-  width: min(480px, 80%);
-  margin: 1.5rem auto 0;
-  opacity: .9;
-  
-  /* Tambahkan efek pudar/blur di bagian pinggir (kiri dan kanan) */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+/* Tentang Saya: surat di atas perkamen */
+.surat{--u:1cqw;position:relative;container-type:inline-size;max-width:820px;margin:0 auto;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))}
+.surat-bg{width:100%;height:auto;display:block}
+.pita{position:absolute;left:26%;width:46%;top:3.6%;height:9.5%;margin:0;display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:var(--disp);font-weight:700;font-size:max(.8rem,calc(3*var(--u)));letter-spacing:.08em;color:#4a2a17}
+.isi{position:absolute;left:11.5%;right:13%;top:28.5%;bottom:13%;display:flex;flex-direction:column;color:#3a2316;font-family:"Dancing Script","Segoe Script",cursive;font-weight:500}
+.isi p{margin:0}
+.salam{font-size:calc(3*var(--u));line-height:1.2;color:#5b2d1c;margin-bottom:calc(1.2*var(--u))!important}
+.badan{font-size:calc(2.55*var(--u));line-height:1.4;text-align:left}
+.penutup{margin-top:auto;padding-right:calc(18*var(--u));display:flex;align-items:center;justify-content:flex-end;gap:calc(2*var(--u))}
+.ttd{display:flex;flex-direction:column;align-items:flex-end;font-size:calc(2.6*var(--u));line-height:1.2}
+.ttd b{font-weight:600;font-size:calc(3.2*var(--u));color:#5b2d1c}
+.segel{flex:none;position:relative;width:calc(8.5*var(--u));aspect-ratio:1;display:grid;place-items:center;border-radius:48% 52% 50% 50%/52% 48% 52% 48%;
+  background:radial-gradient(circle at 35% 30%,#c4412f,#8f1d17 55%,#6a120e);box-shadow:0 calc(.5*var(--u)) calc(1*var(--u)) rgba(60,10,5,.45),inset 0 0 0 calc(.5*var(--u)) rgba(255,130,110,.12);
+  font-family:var(--disp);font-weight:700;font-size:calc(2.8*var(--u));color:rgba(55,6,4,.8);text-shadow:0 1px 0 rgba(255,150,130,.35)}
+.segel::before{content:"";position:absolute;inset:13%;border:calc(.3*var(--u)) solid rgba(55,6,4,.4);border-radius:50%}
+
+/* layar sempit: kertas dibuat dengan CSS agar teks tetap besar */
+@media (max-width:759px){
+  .surat{--u:.46rem;container-type:normal;filter:none;margin-top:1.6rem;padding:3.2rem 1.4rem 1.8rem;border-radius:10px 16px 8px 14px/14px 8px 16px 10px;
+    background:radial-gradient(ellipse at 50% 35%,#ecdcb6,#d9bf8d 70%,#b58b55);box-shadow:inset 0 0 36px rgba(110,60,25,.55),0 12px 24px rgba(0,0,0,.4)}
+  .surat-bg{display:none}
+  .pita{position:absolute;left:50%;top:0;transform:translate(-50%,-45%);width:max-content;height:auto;padding:.55rem 2.2rem;font-size:1rem;
+    background:linear-gradient(#f6ebd0,#e6d3a8);clip-path:polygon(0 0,100% 0,95% 50%,100% 100%,0 100%,5% 50%);box-shadow:0 3px 6px rgba(0,0,0,.3)}
+  .isi{position:static;padding:0}
+  .salam{font-size:1.6rem}
+  .badan{font-size:1.35rem}
+  .penutup{margin-top:1.2rem;padding-right:0}
+  .ttd{font-size:1.3rem}.ttd b{font-size:1.6rem}
+  .segel{width:3.4rem;font-size:1.1rem}
 }
