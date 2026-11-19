@@ -39,48 +39,23 @@ nav ul a:hover,nav ul a.active{color:var(--gold);border-bottom-color:var(--gold)
   background:radial-gradient(ellipse at 50% 35%,rgba(130,75,40,.32),transparent 65%),linear-gradient(rgba(20,11,8,.9),rgba(20,11,8,.95)),url("../img/bunga.jpg");
   background-size:auto,auto,420px;border-bottom:1px solid var(--line)}
 .deco{position:absolute;pointer-events:none;user-select:none;z-index:0}
-.peoni {
-    top: 0;
-    right: 0;
-    width: clamp(90px, 19vw, 240px);
-    opacity: .95;
-
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        #000 0%,
-        #000 45%,
-        transparent 100%
-    );
-
-    mask-image: linear-gradient(
-        to bottom,
-        #000 0%,
-        #000 45%,
-        transparent 100%
-    );
+.peoni{
+  top:0;
+  right:0;
+  width:clamp(90px,19vw,240px);
+  opacity:.95;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);
 }
-
-.dewa {
-    display: block;
-    top: 0;
-    left: 0;
-    width: clamp(90px, 19vw, 240px);
-    transform: scaleX(-1);
-    opacity: .95;
-
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        #000 0%,
-        #000 45%,
-        transparent 100%
-    );
-
-    mask-image: linear-gradient(
-        to bottom,
-        #000 0%,
-        #000 45%,
-        transparent 100%
-    );
+.dewa{
+  display:block;
+  top:0;
+  left:0;
+  width:clamp(90px,19vw,240px);
+  transform:scaleX(-1);
+  opacity:.95;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);
 }
 
 .journal{position:relative;z-index:1;max-width:920px;margin:0 auto}
@@ -149,7 +124,7 @@ main section{padding:2rem 0 2.5rem}
   width:min(480px,80%);
   margin:1.5rem auto 0;
   opacity:.92;
-  filter:blur(.5px); /* naikkan ke 1.5px–3px jika ingin lebih blur */
+  filter:blur(.5px);
   -webkit-mask-image:
     linear-gradient(to right, transparent, #000 18%, #000 82%, transparent),
     linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
@@ -178,14 +153,6 @@ h2{font-family:var(--disp);font-weight:500;font-size:1.6rem;letter-spacing:.1em;
 }
 .stack{display:grid;gap:1.25rem}
 .center{text-align:center;margin:.5rem 0 0}
-
-.tl{margin:0;border-left:1px solid var(--gold);padding:0 0 0 1.75rem}
-.tl li{list-style:none;position:relative;margin-bottom:1.6rem}
-.tl li:last-child{margin-bottom:0}
-.tl li::before{content:"";position:absolute;left:calc(-1.75rem - 5px);top:.6rem;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
-.tl b{font-family:var(--disp);font-weight:500;font-size:1.1rem;display:block}
-.tl small{color:var(--gold);font-size:1.1rem;font-style:italic}
-.tl p{margin:.1rem 0 0;color:var(--mute)}
 
 .card{background:var(--card);border:1px solid var(--line);padding:1.5rem 1.6rem;outline:1px solid var(--line);outline-offset:-8px}
 .card h3{font-family:var(--disp);font-weight:500;font-size:1.05rem;letter-spacing:.04em;margin:0 0 .6rem;color:var(--gold)}
@@ -242,179 +209,216 @@ footer{text-align:center;padding:2rem 1rem 3rem;color:var(--mute);font-size:1rem
   .segel{width:3.4rem;font-size:1.1rem}
 }
 
-/* Mentahan sobekan kertas di pinggir kiri & kanan */
-.pinggir-kertas{
-  position:absolute;
-  top:0;
-  bottom:0;
-  height:100%;
-  width:auto;
-  max-width:none;
-  pointer-events:none;
-  user-select:none;
-  z-index:2;
-  filter:drop-shadow(0 0 10px rgba(0,0,0,.45));
-}
-
-.pinggir-kiri{
-  left:-6px;
-}
-
-.pinggir-kanan{
-  right:-6px;
-  transform:scaleX(-1); /* dibalik horizontal agar sobekannya menghadap ke dalam */
-}
-
-/* Pastikan kartu catatan & benang berada di atas layer pinggiran */
-.edu-threads{z-index:3}
-.clue-note,.clue-center,.clue-scrap{z-index:4}
-
-/* Penyesuaian di layar HP agar tidak menutupi teks kartu */
-@media (max-width:759px){
-  .pinggir-kertas{
-    opacity:.45;
-  }
-}
-
-/* Bagian Pendidikan: gaya papan pin & benang merah ala gambar referensi */
+/* =========================================================
+   Bagian Pendidikan: Papan Dasar Semula + Polaroid + Tali
+   ========================================================= */
 .edu-board{
   position:relative;
   max-width:900px;
+  aspect-ratio:900 / 500;
   margin:0 auto;
-  padding:2.2rem 1.5rem 2.5rem;
-  min-height:460px;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255,235,190,.08), rgba(0,0,0,.45)),
-    linear-gradient(145deg, #3a2419, #24150e);
-  border:2px solid var(--line);
-  border-radius:10px;
-  box-shadow:0 16px 32px rgba(0,0,0,.45);
+  border-radius:12px;
   overflow:hidden;
+  background:radial-gradient(ellipse at 50% 45%, #3b2316, #24140d 80%);
+  box-shadow:inset 0 0 40px rgba(0,0,0,.55), 0 18px 34px rgba(0,0,0,.5);
+  border:1px solid var(--line);
+  outline:1px solid var(--line);
+  outline-offset:-10px;
 }
 
-.edu-threads{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  z-index:1;
-  pointer-events:none;
+/* Tali benang merah: di atas card (z-index: 3), di bawah pin/pointer (z-index: 6) */
+.edu-board{
+  position:relative;
+  max-width:900px;
+  aspect-ratio:900 / 500;
+  margin:0 auto;
+  border-radius:12px;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(74,43,27,.85) 0%, rgba(42,23,14,.95) 58%, rgba(16,8,5,.98) 100%);
+  box-shadow:
+    inset 0 0 65px 22px rgba(10, 4, 2, .72),
+    0 18px 34px rgba(0,0,0,.55);
+  border:3px solid #d8be92;
+  outline:1px solid rgba(216,190,146,.45);
+  outline-offset:-9px;
 }
+
+.edu-threads path,
 .edu-threads line{
-  stroke:#c9322b;
-  stroke-width:3;
+  fill:none;
+  stroke:#c92a2a;
+  stroke-width:2.8;
   stroke-linecap:round;
-  filter:drop-shadow(0 2px 3px rgba(0,0,0,.65));
+  stroke-linejoin:round;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.45));
 }
 
+/* Pin/pointer di atas tali (z-index: 6) */
 .pin{
   position:absolute;
-  top:8px;
+  top:16px;
   left:50%;
   transform:translateX(-50%);
   width:14px;
   height:14px;
   border-radius:50%;
-  background:radial-gradient(circle at 35% 30%, #ff7b72, #b81d18 65%, #690c09);
-  box-shadow:0 3px 6px rgba(0,0,0,.55), inset 0 1px 2px rgba(255,255,255,.45);
-  z-index:3;
+  box-shadow:0 3px 6px rgba(0,0,0,.45), inset 0 1px 2px rgba(255,255,255,.5);
+  z-index:6;
 }
+.pin-coral{background:radial-gradient(circle at 35% 30%, #ff8370, #c92a2a 70%, #730e0e)}
+.pin-teal{background:radial-gradient(circle at 35% 30%, #63e6be, #129988 70%, #084c44)}
+.pin-mustard{background:radial-gradient(circle at 35% 30%, #ffe066, #e09f1f 70%, #7a5106)}
+.pin-plum{background:radial-gradient(circle at 35% 30%, #d0bfff, #7950f2 70%, #3b1d8a)}
 
 .clue-note,
-.clue-center,
 .clue-scrap{
   position:relative;
-  z-index:2;
+  z-index:3;
   color:#2b1910;
-  box-shadow:0 8px 18px rgba(0,0,0,.45);
+  box-shadow:0 8px 18px rgba(0,0,0,.32);
 }
 
 .clue-note{
-  width:240px;
-  padding:1.45rem 1rem 1rem;
-  background:linear-gradient(180deg, #f7eccf, #e8d4a6);
-  border:1px solid rgba(90,55,30,.35);
+  width:250px;
+  padding:2.1rem 1.2rem 1.15rem;
+  background:linear-gradient(180deg, #fbf1d5, #eedca9);
+  border:1px solid rgba(90,55,30,.28);
 }
 .clue-note h3{
-  margin:.2rem 0 .35rem;
+  margin:.3rem 0 .35rem;
   font-family:var(--disp);
-  font-size:1rem;
+  font-size:.98rem;
   line-height:1.25;
-  color:#3a1d11;
+  color:#2e180e;
 }
 .clue-note p{
   margin:0;
-  font-size:1rem;
+  font-size:.98rem;
   line-height:1.35;
-  color:#523424;
+  color:#4f3222;
 }
 .clue-year{
   display:inline-block;
   font-family:var(--disp);
-  font-size:.78rem;
+  font-size:.76rem;
   letter-spacing:.08em;
-  padding:.1rem .45rem;
-  background:#8f241e;
-  color:#f9ecd2;
+  padding:.14rem .55rem;
+  background:#c93b2b;
+  color:#fffaf0;
+  border-radius:2px;
 }
 
-.clue-center{
-  margin:0;
-  width:165px;
-  padding:.55rem .55rem .4rem;
-  background:#f6ebd2;
-  transform:rotate(-1.5deg);
-}
-.clue-center img{
-  width:100%;
-  aspect-ratio:520/677;
-  object-fit:cover;
-  filter:sepia(.35) contrast(1.05);
-}
-.clue-center figcaption{
-  padding-top:.4rem;
-  text-align:center;
-  font-family:var(--disp);
-  font-size:.82rem;
-  letter-spacing:.08em;
-  color:#3a2316;
-}
+.note-smp .clue-year{background:#1b8a7a}
+.note-smk .clue-year{background:#d4881a;color:#241409}
 
 .clue-scrap{
-  width:230px;
-  padding:1.4rem 1rem .95rem;
-  background:linear-gradient(160deg, #d7b482, #b88d58);
+  width:240px;
+  padding:2.15rem 1.2rem 1.2rem;
+  background:linear-gradient(160deg, #e5c491, #c89d63);
   clip-path:polygon(0 2%, 100% 0, 98% 96%, 72% 100%, 48% 95%, 22% 100%, 0 96%);
-  transform:rotate(2.5deg);
 }
 .clue-scrap p{
   margin:0;
   font-family:"Caveat","Segoe Script",cursive;
-  font-size:1.35rem;
-  line-height:1.15;
+  font-size:1.32rem;
+  line-height:1.2;
   color:#2b170e;
 }
 
-/* Posisi papan pada layar desktop */
-@media (min-width:760px){
-  .note-sd{position:absolute;top:24px;left:28px;transform:rotate(-3deg)}
-  .clue-center{position:absolute;top:115px;left:50%;margin-left:-82.5px}
-  .note-smp{position:absolute;top:32px;right:28px;transform:rotate(2.5deg)}
-  .note-smk{position:absolute;bottom:24px;right:42px;transform:rotate(-2deg)}
-  .clue-scrap{position:absolute;bottom:26px;left:38px}
+/* Bagian Tengah: Bingkai Polaroid + Foto */
+.clue-polaroid{
+  position:relative;
+  margin:0;
+  width:230px;
+  aspect-ratio:290 / 335;
+  z-index:3;
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,.45));
+  transform:rotate(-1.5deg);
 }
 
-/* Tata letak rapi di layar HP / sempit */
+.polaroid-frame-img{
+  position:relative;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  pointer-events:none;
+  user-select:none;
+  z-index:2;
+}
+
+.polaroid-photo-slot{
+  position:absolute;
+  top:11.8%;
+  left:15.2%;
+  width:67.5%;
+  height:60.5%;
+  overflow:hidden;
+  transform:rotate(1.4deg);
+  z-index:1;
+  background:#2a1b14;
+}
+
+.polaroid-photo-slot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  filter:sepia(.18) contrast(1.06) saturate(1.05);
+}
+
+/* Teks "Jejak Pendidikan" pas di tengah area kertas bawah polaroid */
+.clue-polaroid figcaption{
+  position:absolute;
+  bottom:18.5%;
+  left:48.5%;
+  right:auto;
+  width:66%;
+  text-align:center;
+  font-family:"Caveat","Segoe Script",cursive;
+  font-weight:600;
+  font-size:1.15rem;
+  line-height:1.1;
+  color:#3b2214;
+  transform:translateX(-50%) rotate(1.4deg);
+  z-index:3;
+}
+
+/* Pin hijau pas di atas bingkai polaroid (z-index: 6 di atas tali) */
+.clue-polaroid .pin{
+  top:26px;
+  left:49%;
+  z-index:6;
+}
+
+/* Posisi pada layar desktop */
+@media (min-width:760px){
+  .note-sd{position:absolute;top:7%;left:7%;transform:rotate(-2deg)}
+  .clue-polaroid{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:0;
+    transform:translate(-50%, -50%) rotate(-1.5deg);
+  }
+  .note-smp{position:absolute;top:8%;right:7%;transform:rotate(1.5deg)}
+  .clue-scrap{position:absolute;bottom:8%;left:7.5%;transform:rotate(-1deg)}
+  .note-smk{position:absolute;bottom:7%;right:7%;transform:rotate(1deg)}
+}
+
+/* Tata letak layar sempit / HP */
 @media (max-width:759px){
   .edu-board{
+    aspect-ratio:auto;
     min-height:auto;
     display:flex;
     flex-direction:column;
     align-items:center;
     gap:1.25rem;
+    padding:1.5rem 1rem;
   }
   .edu-threads{display:none}
   .clue-note,.clue-scrap{width:100%;max-width:320px;transform:none}
-  .clue-center{width:170px;transform:none}
+  .clue-polaroid{width:210px;transform:none}
 }
-
