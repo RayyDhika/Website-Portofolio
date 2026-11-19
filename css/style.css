@@ -83,22 +83,6 @@ nav ul a:hover,nav ul a.active{color:var(--gold);border-bottom-color:var(--gold)
     );
 }
 
-/* hiasan.webp: pinggir memudar halus + opsi blur */
-.hiasan{
-  opacity:.95;
-  filter:blur(.6px); /* ubah ke 2px–4px jika ingin pinggirannya lebih blur */
-  -webkit-mask-image:
-    radial-gradient(ellipse at center, #000 55%, transparent 98%),
-    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent),
-    linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-  -webkit-mask-composite:source-in;
-  mask-image:
-    radial-gradient(ellipse at center, #000 55%, transparent 98%),
-    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent),
-    linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-  mask-composite:intersect;
-}
-
 .journal{position:relative;z-index:1;max-width:920px;margin:0 auto}
 .jhead{margin-bottom:1rem;text-align:center}
 .jtitle{font-family:var(--disp);font-size:1.5rem;letter-spacing:.08em;margin:0;color:#ecdcc0}
@@ -161,7 +145,20 @@ nav ul a:hover,nav ul a.active{color:var(--gold);border-bottom-color:var(--gold)
 main{max-width:1000px;margin:0 auto;padding:0 1.25rem}
 section{scroll-margin-top:0}
 main section{padding:2rem 0 2.5rem}
-.divider{width:min(480px,80%);margin:1.5rem auto 0;opacity:.9}
+.divider{
+  width:min(480px,80%);
+  margin:1.5rem auto 0;
+  opacity:.92;
+  filter:blur(.5px); /* naikkan ke 1.5px–3px jika ingin lebih blur */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 18%, #000 82%, transparent),
+    linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:
+    linear-gradient(to right, transparent, #000 18%, #000 82%, transparent),
+    linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+  mask-composite:intersect;
+}
 h2{font-family:var(--disp);font-weight:500;font-size:1.6rem;letter-spacing:.1em;margin:0 0 2rem;text-align:center}
 .split{display:grid;gap:2rem 3rem;align-items:center;justify-items:center;max-width:860px;margin:0 auto}
 .split>p,.split>.tl,.split>.stack{width:100%}
