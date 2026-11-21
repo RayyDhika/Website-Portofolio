@@ -8,7 +8,7 @@ const PR=[{t:"Aplikasi Peminjaman Alat",m:"Proyek Sekolah · Web Developer · Ju
 const CE=[{t:"AI Ready ASEAN",u:"https://drive.google.com/file/d/1n-TgF4oj6mbqUZV-PQd4tjUdy0yiAbrs/view?usp=drive_link"},{t:"Save The Children",u:"https://drive.google.com/file/d/1bXz39GbKao_zUDBkCPf2ju-Df-6SI1Xn/view?usp=drive_link"}];
 const dlg=$('#dlg');
 function open(h){dlg.innerHTML=h+'<form method="dialog" style="margin-top:1rem"><button class="btn alt">Tutup</button></form>';dlg.showModal()}
-$$('[data-p]').forEach(b=>b.onclick=()=>{const p=PR[b.dataset.p];open(`<h3>${p.t}</h3><p class="meta">${p.m}</p><p><b>Tools:</b> ${p.tools}</p><ul>${p.l.map(x=>`<li>${x}</li>`).join('')}</ul><p class="meta">Screenshot proyek belum tersedia.</p>`)});
+$$('[data-p]').forEach(b=>b.onclick=()=>{const p=PR[b.dataset.p];open(`<h3>${p.t}</h3><p class="meta">${p.m}</p><p><b>Tools:</b> ${p.tools}</p><ul>${p.l.map(x=>`<li>${x}</li>`).join('')}</ul>`)});
 $$('[data-c]').forEach(b=>b.onclick=()=>{const c=CE[b.dataset.c];open(`<h3>${c.t}</h3><p>Sertifikat pelatihan Raisya Mardhika.</p><p style="margin-top:1rem"><a class="btn red" href="${c.u}" target="_blank" rel="noopener">Buka sertifikat</a></p>`)});
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 lucide.createIcons();

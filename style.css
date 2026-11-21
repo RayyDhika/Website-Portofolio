@@ -136,3 +136,27 @@ footer{background:#020E24}
 #hero{position:relative;min-height:100svh;padding:6.5rem 0 8rem}
 #hero h1{font-size:clamp(3rem,11vw,9rem)}
 #hero h1 .rw.o{-webkit-text-stroke:0;color:var(--sun);text-shadow:0 4px 0 rgba(6,38,74,.35)}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.github-btn {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  text-decoration: none;
+}
+
+.th img {
+  width: 92%;
+  height: auto;
+  max-height: 460px;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
