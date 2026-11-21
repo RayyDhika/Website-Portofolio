@@ -38,7 +38,7 @@ nav ul a:hover,nav ul a.on{background:var(--navy);color:#fff}
 h2{font-size:clamp(2.6rem,7vw,5.5rem);margin-bottom:2.5rem}
 #about .g{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:start}
 .pol{background:#fff;color:var(--navy);padding:.8rem .8rem 3rem;border:2px solid var(--navy);transform:rotate(-4deg);box-shadow:8px 8px 0 var(--red);max-width:340px;position:relative}
-.pol .im{aspect-ratio:1;overflow:hidden;background:#31C7D6}.pol img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform:scale(1.4);transform-origin:50% 28%}
+.pol .im{aspect-ratio:1;overflow:hidden;background:#31C7D6}.pol img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform:scale(1);transform-origin:50% 28%}
 .pol p{position:absolute;bottom:.8rem;left:0;right:0;text-align:center;font:800 1.1rem 'Bricolage Grotesque'}
 .bio p{font-size:1.2rem;margin-bottom:1rem;max-width:58ch}.bio p:first-child{font:500 clamp(1.4rem,2.6vw,2rem)/1.25 'Bricolage Grotesque';letter-spacing:-.01em}
 .chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-top:1.6rem}
@@ -111,7 +111,7 @@ nav ul{display:none;position:absolute;top:100%;left:1rem;right:1rem;flex-directi
 #hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(100deg,rgba(255,255,255,.12) 0 40px,transparent 40px 140px);-webkit-mask:linear-gradient(#000,transparent 70%);mask:linear-gradient(#000,transparent 70%);pointer-events:none}
 
 #about{background:linear-gradient(180deg,#E6FAFF,#BDF0F7);color:#06264A;--card:#fff;--ink:#06264A}
-.pol{background:transparent;padding:0;border:0;transform:none;box-shadow:none;max-width:360px;aspect-ratio:1;width:100%}
+.pol{background:transparent;padding:0;border:0;transform:none;box-shadow:none;max-width:300px;aspect-ratio:1;width:100%}
 .pol .im{width:100%;height:100%;aspect-ratio:auto;border-radius:58% 42% 55% 45%/50% 55% 45% 50%;border:6px solid #fff;box-shadow:0 0 0 6px #0A6FA8,0 20px 40px rgba(10,111,168,.35);background:#31C7D6;animation:morph 8s ease-in-out infinite alternate}
 @keyframes morph{to{border-radius:45% 55% 42% 58%/55% 45% 55% 45%}}
 .pol p{bottom:-16px;left:50%;right:auto;transform:translateX(-50%);background:var(--sun);color:#06264A;padding:.3rem 1rem;border:2px solid #06264A;border-radius:99px;white-space:nowrap;font-size:1rem}
