@@ -160,3 +160,20 @@ footer{background:#020E24}
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
+.th {
+  position: relative;
+}
+
+.preview-label {
+  position: absolute;
+  top: .8rem;
+  left: .8rem;
+  font-style: normal;
+  font-size: .8rem;
+  background: #096b89;
+  color: #fff;
+  padding: .2rem .7rem;
+  border-radius: 99px;
+  z-index: 2;
+}
