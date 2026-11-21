@@ -5,7 +5,7 @@ const TL=[["Visual Studio Code","code-xml"],["Figma","figma"],["Microsoft Office
 $('#tools').innerHTML=TL.map(t=>`<span><i data-lucide="${t[1]}"></i>${t[0]}</span>`).join('');
 $('#mq').innerHTML=Array(2).fill(["Web Development","UI/UX Design","Game Development","Creative Design"].map(t=>t+'<span>🫧</span>').join('')).join('');
 const PR=[{t:"Aplikasi Peminjaman Alat",m:"Proyek Sekolah · Web Developer · Juli 2026 – Sekarang",tools:"PHP, Laravel",l:["Menyusun alur sistem dan fitur utama aplikasi peminjaman alat berbasis web menggunakan PHP dan Laravel.","Mengerjakan antarmuka pengguna serta modul pencatatan peminjaman dan pengembalian alat.","Melakukan pengujian fungsionalitas fitur agar sistem berjalan stabil dan mudah digunakan."]},{t:"Game 2D Construct 3",m:"Proyek Sekolah · Game Developer · Maret – April 2026",tools:"Construct 3",l:["Merancang konsep permainan dan menciptakan game 2D interaktif menggunakan Construct 3.","Menyusun logika event sheet, tata letak level, serta pengujian alur permainan."]}];
-const CE=[{t:"AI Ready ASEAN",u:"https://drive.google.com/ASEAN"},{t:"Save The Children",u:"https://drive.google.com/SafeTheChildren"}];
+const CE=[{t:"AI Ready ASEAN",u:"https://drive.google.com/file/d/1n-TgF4oj6mbqUZV-PQd4tjUdy0yiAbrs/view?usp=drive_link"},{t:"Save The Children",u:"https://drive.google.com/file/d/1n-TgF4oj6mbqUZV-PQd4tjUdy0yiAbrs/view?usp=drive_link"}];
 const dlg=$('#dlg');
 function open(h){dlg.innerHTML=h+'<form method="dialog" style="margin-top:1rem"><button class="btn alt">Tutup</button></form>';dlg.showModal()}
 $$('[data-p]').forEach(b=>b.onclick=()=>{const p=PR[b.dataset.p];open(`<h3>${p.t}</h3><p class="meta">${p.m}</p><p><b>Tools:</b> ${p.tools}</p><ul>${p.l.map(x=>`<li>${x}</li>`).join('')}</ul><p class="meta">Screenshot proyek belum tersedia.</p>`)});
@@ -16,7 +16,12 @@ const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('v');setTime
 $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText('mardhika098@gmail.com');toast('Email disalin')}catch(e){toast('Salin manual: mardhika098@gmail.com')}};
 $('#f').onsubmit=e=>{e.preventDefault();location.href=`mailto:mardhika098@gmail.com?subject=${encodeURIComponent('Pesan dari '+$('#n').value)}&body=${encodeURIComponent($('#m').value)}`};
 const mn=$('#menu'),bg=$('#burger');bg.onclick=()=>{const o=mn.classList.toggle('o');bg.setAttribute('aria-expanded',o)};
-const go=id=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});mn.classList.remove('o')};
+let busy=false;
+const go=id=>{const el=document.getElementById(id);mn.classList.remove('o');if(!el)return;
+ if(busy||matchMedia('(prefers-reduced-motion:reduce)').matches){el.scrollIntoView();return}
+ busy=true;const H=innerHeight+90,w=$('#wt');
+ const a=w.animate([{transform:`translateY(${H}px)`},{transform:'translateY(0)'}],{duration:650,easing:'cubic-bezier(.5,0,.9,.5)',fill:'forwards'});
+ a.onfinish=()=>{el.scrollIntoView({behavior:'auto'});const b=w.animate([{transform:'translateY(0)'},{transform:`translateY(${-H}px)`}],{duration:750,delay:120,easing:'cubic-bezier(.2,.6,.3,1)',fill:'forwards'});b.onfinish=()=>{w.getAnimations().forEach(x=>x.cancel());busy=false}}};
 $$('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();go(a.getAttribute('href').slice(1))}));
 $('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
 addEventListener('scroll',()=>$('#top').classList.toggle('v',scrollY>700),{passive:true});
@@ -30,8 +35,7 @@ function start(){
  $$('section [data-in]').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:.8,scrollTrigger:{trigger:el,start:'top 90%'}}));
  gsap.from('.tl',{clipPath:'inset(0 0 100% 0)',duration:1.2,scrollTrigger:{trigger:'.tl',start:'top 80%'}});
  gsap.to('.bar i',{scaleX:1,duration:.9,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:'#sk',start:'top 80%'}});
- gsap.fromTo('.pol',{rotate:-14},{rotate:-4,scrollTrigger:{trigger:'.pol',start:'top 90%',end:'top 40%',scrub:true}});
- $$('section').forEach(s=>{if(s.id!=='hero')gsap.from(s,{clipPath:'inset(6% 4% 0 4% round 40px)',duration:1,scrollTrigger:{trigger:s,start:'top 95%',end:'top 55%',scrub:true}})});
+ gsap.fromTo('.pol',{rotate:-8},{rotate:0,scrollTrigger:{trigger:'.pol',start:'top 90%',end:'top 40%',scrub:true}});
  $$('#about,#edu,#projects,#skills,#certs,#contact').forEach(s=>ScrollTrigger.create({trigger:s,start:'top 50%',end:'bottom 50%',onToggle:t=>{const a=$(`nav ul a[href="#${s.id}"]`);a&&a.classList.toggle('on',t.isActive)}}));
 }
 function bub(p,n){const e=$(p);for(let i=0;i<n;i++){const b=document.createElement('i');b.className='bb';const s=8+Math.random()*26;b.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${8+Math.random()*10}s;animation-delay:-${Math.random()*14}s`;e.appendChild(b)}}
