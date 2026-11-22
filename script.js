@@ -48,7 +48,7 @@ function hero(){
   const o={el:s,x:0,y:140+Math.random()*80,vx:0,vy:0,r:(Math.random()-.5)*40,vr:0};
   s.onclick=()=>{o.vy=-20;o.vr=(Math.random()<.5?-1:1)*25;o.vx+=(Math.random()-.5)*10};Ls.push(o)})});
  gsap.from(Ls.map(o=>o.el),{opacity:0,duration:.6,stagger:.04});
- const E=['🐦','🕊️','🦜'];
+ const E=['🕊️','🕊️','🕊️'];
  const F=E.map(e=>{const el=document.createElement('div');el.className='fish';el.textContent=e;const sz=44+Math.random()*30;el.style.fontSize=sz+'px';fl.appendChild(el);
   const W=H0.clientWidth,H=H0.clientHeight;
   const f={el,sz,x:Math.random()*(W-sz),y:110+Math.random()*Math.max(60,H-260),vx:0,vy:0,dir:Math.random()<.5?-1:1,sp:.6+Math.random(),ph:Math.random()*6,mode:'swim',drag:false,lx:0,ly:0,lt:0,ox:0,oy:0};
