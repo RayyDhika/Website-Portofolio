@@ -1,6 +1,6 @@
-:root{--red:#FF6B5E;--navy:#06264A;--paper:#E6FAFF;--ink:#06264A;--card:#fff;--sun:#FFE08A;--mint:#7DE8D8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#031428;--ink:#E6FAFF;--card:#0B2E55;color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#031428;--ink:#E6FAFF;--card:#0B2E55;color-scheme:dark}
+:root{--red:#FF6B5E;--navy:#06264A;--paper:#EAF5FF;--ink:#06264A;--card:#fff;--sun:#FFE08A;--mint:#BDE3FF;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0B1B3A;--ink:#EAF5FF;--card:#16305F;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0B1B3A;--ink:#EAF5FF;--card:#16305F;color-scheme:dark}
 *{box-sizing:border-box;margin:0}html{scroll-padding-top:70px}
 body{background:var(--paper);color:var(--ink);font:400 1.05rem/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
 h1,h2,h3,.d{font-family:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;font-weight:800;line-height:.9;letter-spacing:-.03em}
@@ -11,7 +11,7 @@ section{padding:7rem 0;position:relative}
 .btn{display:inline-flex;gap:.5rem;align-items:center;padding:.9rem 1.4rem;border-radius:99px;border:2px solid var(--navy);background:var(--sun);color:var(--navy);font-weight:700;text-decoration:none;cursor:pointer;font-size:1rem;font-family:inherit;transition:transform .25s,box-shadow .25s;box-shadow:4px 4px 0 var(--navy)}
 .btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--navy)}.btn.alt{background:#fff}.btn.red{background:var(--red);color:#fff}
 .btn svg{width:18px;height:18px}
-#load{position:fixed;inset:0;background:linear-gradient(#31C7D6,#06264A);z-index:100;display:grid;place-items:center;color:#fff}
+#load{position:fixed;inset:0;background:linear-gradient(#3FA2EE,#1B5EBB);z-index:100;display:grid;place-items:center;color:#fff}
 #load b{font:800 clamp(4rem,18vw,11rem)/1 'Bricolage Grotesque',sans-serif}
 #load small{position:absolute;bottom:2rem;font-weight:700}
 nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;mix-blend-mode:normal}
@@ -177,3 +177,67 @@ footer{background:#020E24}
   border-radius: 99px;
   z-index: 2;
 }
+
+/* ================= TEMA LANGIT ================= */
+:root{--navy:#0B2A5B;--ink:#0B2A5B}
+#hero{background:linear-gradient(180deg,#1769C4 0%,#3B93E3 58%,#7CBCF0 100%)}
+#hero .tag,#hero .hero-p,#hero .meta{text-shadow:0 2px 10px rgba(11,42,91,.55)}
+#hero::before{background:repeating-linear-gradient(100deg,rgba(255,255,255,.14) 0 40px,transparent 40px 140px)}
+.hint{background:rgba(11,42,91,.45)}
+.ph .fr,.pol .im{background:#5BA7EA}
+.pol .im{box-shadow:0 0 0 6px #2E7FD6,0 20px 40px rgba(46,127,214,.35)}
+.th.a{background:linear-gradient(160deg,#5BA7EA,#2E7FD6)}.th.b{background:linear-gradient(160deg,#2E7FD6,#1E3F94)}
+
+/* awan mentahan di bagian atas hero */
+.sky-top{position:absolute;inset:0 0 auto 0;height:46%;z-index:1;pointer-events:none;overflow:hidden}
+.sky-top img{position:absolute;height:auto;filter:drop-shadow(0 10px 18px rgba(11,42,91,.18));animation:floaty 9s ease-in-out infinite alternate}
+.sky-top .c1{width:min(52vw,640px);left:-8%;top:-9%}
+.sky-top .c2{width:min(46vw,560px);left:36%;top:-14%;animation-delay:-3s;transform:scaleX(-1)}
+.sky-top .c3{width:min(50vw,600px);right:-10%;top:-6%;animation-delay:-6s}
+@keyframes floaty{from{translate:0 0}to{translate:26px 10px}}
+nav{z-index:50}
+
+/* awan kecil yang melayang (pengganti gelembung) */
+.bb{left:0;bottom:auto;border:0;border-radius:0;background:url(assets/awan.png) center/contain no-repeat;animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(-25vw)}to{transform:translateX(115vw)}}
+#hero>.bb,#contact>.bb{z-index:1}
+
+/* pembatas bentuk ombak, berwarna awan */
+.wave{background:#F2F9FF}
+.mq{background:#F2F9FF;color:#0B2A5B;border:0}.mq span{color:#5BA7EA}
+#wt{background:url(assets/awan.png) 18% 28%/42vw auto no-repeat,url(assets/awan.png) 82% 70%/46vw auto no-repeat,linear-gradient(#F4FAFF,#DCEEFC 60%,#BFDDF6)}
+#wt::before{background:#F4FAFF}#wt::after{background:#BFDDF6}
+
+/* warna tiap bagian: siang -> senja -> malam */
+#about{background:linear-gradient(180deg,#F2F9FF,#CFE8FB)}
+#edu{background:linear-gradient(180deg,#CFE8FB,#5BA7EA 45%,#2E7FD6);color:#fff}#edu h2{color:#fff}
+#projects{background:linear-gradient(180deg,#2E7FD6,#2A5CC0 55%,#2B49A0);color:#fff}
+#skills{background:linear-gradient(180deg,#2B49A0,#35358E);color:#fff}
+#certs{background:linear-gradient(180deg,#35358E,#2A2674);color:#fff}
+#contact{background:linear-gradient(180deg,#2A2674,#14123F)}
+footer{background:#14123F}
+#projects .pc{color:#0B2A5B}
+
+/* ilustrasi awan di setiap bagian */
+section{overflow:hidden}
+section>.w{position:relative;z-index:1}
+#about::before,#about::after,#edu::before,#edu::after,#projects::before,#projects::after,#skills::before,#skills::after,#certs::before,#certs::after,#contact::before,#contact::after{content:"";position:absolute;z-index:0;pointer-events:none;background:url(assets/awan.png) center/contain no-repeat;aspect-ratio:3/2;animation:floaty 11s ease-in-out infinite alternate}
+#about::before{width:min(44vw,520px);top:-3%;right:-6%;opacity:.95}
+#about::after{width:min(34vw,400px);bottom:-4%;left:-7%;opacity:.8;transform:scaleX(-1);animation-delay:-4s}
+#edu::before{width:min(40vw,480px);top:4%;right:-5%;opacity:.85}
+#edu::after{width:min(30vw,360px);bottom:2%;left:-6%;opacity:.55;animation-delay:-5s}
+#projects::before{width:min(36vw,440px);top:-2%;left:-8%;opacity:.4;transform:scaleX(-1)}
+#projects::after{width:min(40vw,480px);bottom:-3%;right:-8%;opacity:.4;animation-delay:-3s}
+#skills::before{width:min(38vw,460px);top:-3%;right:-8%;opacity:.28}
+#skills::after{width:min(32vw,380px);bottom:-2%;left:-7%;opacity:.25;transform:scaleX(-1);animation-delay:-6s}
+#certs::before{width:min(36vw,440px);top:-2%;left:-7%;opacity:.25}
+#certs::after{width:min(38vw,460px);bottom:-3%;right:-8%;opacity:.22;animation-delay:-2s}
+#contact::before{width:min(40vw,480px);top:2%;right:-8%;opacity:.2}
+#contact::after{width:min(34vw,400px);bottom:-1%;left:-8%;opacity:.18;transform:scaleX(-1);animation-delay:-7s}
+
+/* gelembung kecil di foto -> awan mungil */
+.pol::before,.pol::after{border:0;border-radius:0;background:url(assets/awan.png) center/contain no-repeat}
+.pol::before{width:120px;height:80px;top:-28px;right:-34px}
+.pol::after{width:84px;height:56px;bottom:30px;left:-34px}
+@media(max-width:860px){.sky-top{height:36%}.sky-top .c1{width:70vw}.sky-top .c2{width:62vw}.sky-top .c3{width:66vw}}
+@media(prefers-reduced-motion:reduce){.sky-top img,.bb,#about::before,#about::after,#edu::before,#edu::after,#projects::before,#projects::after,#skills::before,#skills::after,#certs::before,#certs::after,#contact::before,#contact::after{animation:none}}

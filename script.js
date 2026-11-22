@@ -3,7 +3,7 @@ const SK=[["Pengolahan Data & Dokumen","Intermediate",2,"file-text"],["UI/UX & D
 $('#sk').innerHTML=SK.map(s=>`<button class="sc" data-in aria-label="${s[0]}, ${s[1]}"><i data-lucide="${s[3]}"></i><h3>${s[0]}</h3><div class="bar">${[1,2,3].map(i=>`<i class="${i<=s[2]?'f':''}"></i>`).join('')}</div><small>${s[1]} <span style="font-weight:400">(Basic → Intermediate → Advanced)</span></small></button>`).join('');
 const TL=[["Visual Studio Code","code-xml"],["Figma","figma"],["Microsoft Office","file-text"],["GitHub","github"],["Construct 3","gamepad-2"],["Docker","container"],["Canva","palette"],["Vercel","triangle"]];
 $('#tools').innerHTML=TL.map(t=>`<span><i data-lucide="${t[1]}"></i>${t[0]}</span>`).join('');
-$('#mq').innerHTML=Array(2).fill(["Web Development","UI/UX Design","Game Development","Creative Design"].map(t=>t+'<span>🫧</span>').join('')).join('');
+$('#mq').innerHTML=Array(2).fill(["Web Development","UI/UX Design","Game Development","Creative Design"].map(t=>t+'<span>☁️</span>').join('')).join('');
 const PR=[{t:"Aplikasi Peminjaman Alat",m:"Proyek Sekolah · Web Developer · Juli 2026 – Sekarang",tools:"PHP, Laravel",l:["Menyusun alur sistem dan fitur utama aplikasi peminjaman alat berbasis web menggunakan PHP dan Laravel.","Mengerjakan antarmuka pengguna serta modul pencatatan peminjaman dan pengembalian alat.","Melakukan pengujian fungsionalitas fitur agar sistem berjalan stabil dan mudah digunakan."]},{t:"Game 2D Construct 3",m:"Proyek Sekolah · Game Developer · Maret – April 2026",tools:"Construct 3",l:["Merancang konsep permainan dan menciptakan game 2D interaktif menggunakan Construct 3.","Menyusun logika event sheet, tata letak level, serta pengujian alur permainan."]}];
 const CE=[{t:"AI Ready ASEAN",u:"https://drive.google.com/file/d/1n-TgF4oj6mbqUZV-PQd4tjUdy0yiAbrs/view?usp=drive_link"},{t:"Save The Children",u:"https://drive.google.com/file/d/1bXz39GbKao_zUDBkCPf2ju-Df-6SI1Xn/view?usp=drive_link"}];
 const dlg=$('#dlg');
@@ -38,9 +38,9 @@ function start(){
  gsap.fromTo('.pol',{rotate:-8},{rotate:0,scrollTrigger:{trigger:'.pol',start:'top 90%',end:'top 40%',scrub:true}});
  $$('#about,#edu,#projects,#skills,#certs,#contact').forEach(s=>ScrollTrigger.create({trigger:s,start:'top 50%',end:'bottom 50%',onToggle:t=>{const a=$(`nav ul a[href="#${s.id}"]`);a&&a.classList.toggle('on',t.isActive)}}));
 }
-function bub(p,n){const e=$(p);for(let i=0;i<n;i++){const b=document.createElement('i');b.className='bb';const s=8+Math.random()*26;b.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${8+Math.random()*10}s;animation-delay:-${Math.random()*14}s`;e.appendChild(b)}}
+function bub(p,n){const e=$(p);for(let i=0;i<n;i++){const b=document.createElement('i');b.className='bb';const s=70+Math.random()*130;b.style.cssText=`top:${6+Math.random()*80}%;width:${s}px;height:${s/1.5}px;opacity:${.35+Math.random()*.5};animation-duration:${45+Math.random()*55}s;animation-delay:-${Math.random()*80}s`;e.appendChild(b)}}
 bub('#hero',14);bub('#contact',10);
-addEventListener('scroll',()=>{const p=scrollY/((document.body.scrollHeight-innerHeight)||1);$('#depth').textContent=Math.round(p*200)+' m'},{passive:true});
+addEventListener('scroll',()=>{const p=scrollY/((document.body.scrollHeight-innerHeight)||1);$('#depth').textContent=Math.round((1-p)*3000)+' m'},{passive:true});
 let n=0;const iv=setInterval(()=>{n=Math.min(100,n+7);$('#pct').textContent=n;if(n>=100){clearInterval(iv);gsap.to('#load',{yPercent:-100,duration:.9,ease:'power4.inOut',onComplete:()=>$('#load').remove()});start()}},45);
 function hero(){
  const H0=$('#hero'),fl=$('#fl'),Ls=[];
@@ -48,7 +48,7 @@ function hero(){
   const o={el:s,x:0,y:140+Math.random()*80,vx:0,vy:0,r:(Math.random()-.5)*40,vr:0};
   s.onclick=()=>{o.vy=-20;o.vr=(Math.random()<.5?-1:1)*25;o.vx+=(Math.random()-.5)*10};Ls.push(o)})});
  gsap.from(Ls.map(o=>o.el),{opacity:0,duration:.6,stagger:.04});
- const E=['🐟','🐠','🐡'];
+ const E=['🐦','🕊️','🦜'];
  const F=E.map(e=>{const el=document.createElement('div');el.className='fish';el.textContent=e;const sz=44+Math.random()*30;el.style.fontSize=sz+'px';fl.appendChild(el);
   const W=H0.clientWidth,H=H0.clientHeight;
   const f={el,sz,x:Math.random()*(W-sz),y:110+Math.random()*Math.max(60,H-260),vx:0,vy:0,dir:Math.random()<.5?-1:1,sp:.6+Math.random(),ph:Math.random()*6,mode:'swim',drag:false,lx:0,ly:0,lt:0,ox:0,oy:0};
